@@ -1,0 +1,48 @@
+# Environment
+.env
+*.env
+
+# API keys and credentials — never commit these
+# Set them as environment variables instead:
+#   export GOOGLE_API_KEY='...'
+#   export DATABASE_URL='...'
+
+# ChromaDB — local vector database, rebuilt by running pawplan_ingest.py
+chroma_db/
+
+# Product data — derived from Dr. Pierson's chart, not redistributable
+cat_food_products.csv
+cat_food_products_flagged.csv
+cat_food_products_clean.csv
+CatFoodProteinFatCarbPhosphorusChart.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+pawplan_env/
+venv/
+env/
+.venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Conda
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
