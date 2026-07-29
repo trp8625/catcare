@@ -831,7 +831,7 @@ section {
 <div class="toast" id="toast"></div>
 
 <script>
-const API = window.location.origin;
+const API = 'http://localhost:8000';
 let cats = [];
 let currentCat = null;
 
@@ -1013,9 +1013,9 @@ async function loadRecs() {
       <div class="rec-item">
         <div>
           <div class="rec-name">${esc(r.product_name || r.name || 'Product')}</div>
-          <div class="rec-meta">${esc(r.brand || '')}${r.feeding_amount_g ? ' &middot; ' + r.feeding_amount_g + 'g/day' : ''}</div>
+          <div class="rec-meta">${esc(r.brand || '')}${r.feeding && r.feeding.note ? ' &middot; ' + esc(r.feeding.note) : ''}</div>
         </div>
-        <div class="rec-score">${r.score !== undefined ? Math.round(r.score * 100) + '%' : ''}</div>
+        <div class="rec-score">${r.score !== undefined ? Math.round(r.score) + '/100' : ''}</div>
       </div>
     `).join('') + '</div>';
   } catch(err) {
