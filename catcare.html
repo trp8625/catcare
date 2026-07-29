@@ -300,7 +300,6 @@ section {
 /* ── ADD CAT FORM SECTION ────────────────────── */
 #section-add {
   background: var(--white);
-  max-width: 620px;
 }
 
 .back-btn {
@@ -325,6 +324,7 @@ section {
 .form-wrap {
   border: 1px solid var(--rule);
   background: var(--cream);
+  max-width: 700px;
 }
 
 .form-row {
@@ -719,7 +719,7 @@ section {
   <div class="section-title">New <em>profile.</em></div>
   <p class="section-sub">Tell us about your cat so we can personalize every recommendation and answer.</p>
 
-  <div class="form-wrap" style="max-width:580px;">
+  <div class="form-wrap">
     <div class="form-row full">
       <div class="form-field">
         <label>Cat's Name</label>
@@ -831,7 +831,7 @@ section {
 <div class="toast" id="toast"></div>
 
 <script>
-const API = window.location.origin;
+const API = 'http://localhost:8000';
 let cats = [];
 let currentCat = null;
 
