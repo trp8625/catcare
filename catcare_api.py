@@ -21,6 +21,7 @@ Environment variables required:
 """
 
 import os
+import uuid
 from datetime import date, datetime
 from typing import Optional
 
@@ -70,7 +71,7 @@ def serve_frontend():
 # ── REQUEST / RESPONSE MODELS ─────────────────────────────────────────────────
 
 class CatProfileCreate(BaseModel):
-    cat_id: str               # unique identifier for the cat (e.g. "shelter-cat-001")
+    cat_id: Optional[str] = None  # auto-generated if not provided
     cat_name: str
     date_of_birth: str        # ISO format: "2020-03-15"
     sex: str                  # "male" or "female"
@@ -143,6 +144,10 @@ def create_or_update_profile(profile: CatProfileCreate):
     Create or update a cat profile.
     If a profile with the same cat_id already exists, it will be updated.
     """
+    # Auto-generate cat_id if not provided
+    if not profile.cat_id:
+        profile.cat_id = str(uuid.uuid4())
+
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
