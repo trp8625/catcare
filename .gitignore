@@ -8,12 +8,10 @@
 #   export DATABASE_URL='...'
 
 # ChromaDB — local vector database, rebuilt by running pawplan_ingest.py
-chroma_db/
 
 # Product data — derived from Dr. Pierson's chart, not redistributable
 cat_food_products.csv
 cat_food_products_flagged.csv
-cat_food_products_clean.csv
 CatFoodProteinFatCarbPhosphorusChart.pdf
 
 # Python
