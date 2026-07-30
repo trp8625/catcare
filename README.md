@@ -2,7 +2,9 @@
 
 **AI-powered personalized cat nutrition assistant**
 
-PawPlan answers feline nutrition questions using a profile-aware RAG (Retrieval-Augmented Generation) pipeline. Given a cat's profile, it retrieves relevant veterinary content from a curated knowledge base and generates grounded, personalized answers via an LLM.
+View here: https://catcare.up.railway.app/
+
+CatCare answers feline nutrition questions using a profile-aware RAG (Retrieval-Augmented Generation) pipeline. Given a cat's profile, it retrieves relevant veterinary content from a curated knowledge base and generates grounded, personalized answers via an LLM.
 
 ---
 
