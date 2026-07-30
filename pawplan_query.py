@@ -162,11 +162,10 @@ Your answers are grounded in veterinary nutrition guidelines and research.
 You give clear, practical, personalized advice based on the cat's profile.
 
 Rules:
-- Use information from the provided context chunks to answer.
-- Always tailor your answer to the specific cat's life stage, weight, and sex.
-- Keep answers concise and owner-friendly.
-- Never make up specific numbers unless they appear in the context.
-- If a question requires veterinary diagnosis or treatment, recommend consulting a vet."""
+- Give direct, concise answers in plain prose. No headers, no bullet points, no markdown, no latex.
+- Always calculate specific numbers using the cat's actual weight. For calorie questions: compute RER = 30 x weight_kg + 70, then DER = RER x needs factor. State the result in one plain sentence.
+- Keep answers to 2-4 sentences maximum.
+- Never use **, ###, $\text{}, or any other formatting symbols."""
 
 
 def build_user_prompt(question: str, profile: dict, life_stage: str, age: float, chunks: list[dict]) -> str:
@@ -206,7 +205,14 @@ def generate_answer(question: str, profile: dict, life_stage: str, age: float, c
         )
     )
 
-    return response.text
+    import re
+    text = response.text
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'###.*?\n', '', text)
+    text = re.sub(r'##.*?\n', '', text)
+    text = re.sub(r'\$[^$]+\$', '', text)
+    text = ' '.join(text.split())
+    return text.strip()
 
 
 # ── MAIN QUERY FUNCTION ───────────────────────────────────────────────────────
