@@ -1,4 +1,4 @@
-# PawPlan
+# CatCare
 
 **AI-powered personalized cat nutrition assistant**
 
