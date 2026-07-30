@@ -199,7 +199,7 @@ def generate_answer(question: str, profile: dict, life_stage: str, age: float, c
     client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
 
     response = client.models.generate_content(
-        model="gemini-1.5-flash",
+        model="gemini-3.5-flash",
         contents=build_user_prompt(question, profile, life_stage, age, chunks),
         config=genai.types.GenerateContentConfig(
             system_instruction=build_system_prompt()
